@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Moishy & Leah</title>
+</head>
+<h1>Moishy & Leah</h1>
+
+<body onload="mystart()">
+    <div id="q"></div>
+    <div id="whats" style="display: flex;">
+        <div id="what" style="margin-left: 20%;">ימים</div>
+        <div id="what">שעות</div>
+        <div id="what">דקות</div>
+        <div id="what">שניות</div>
+    </div>
+</body>
+
+<style>
+    h1 {
+        font-family: Brush Script MT;
+        font-size: 151px;
+        text-align: center;
+        color: #000000;
+        animation: neon1 1.5s ease-in-out infinite alternate;
+
+    }
+
+    #what {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 50px;
+        text-align: center;
+        margin-left: 14%;
+        animation: neon 1.5s ease-in-out infinite alternate;
+    }
+
+    body {
+        background-color: black;
+        color: #fff;
+    }
+
+
+    #q {
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-size: 260px;
+        margin-left: 10%;
+        animation: neon 1.5s ease-in-out infinite alternate;
+    }
+
+    @keyframes neon {
+        from {
+            text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #ff0095,
+                0 0 70px #ff0095, 0 0 80px #ff0095, 0 0 100px #ff0095, 0 0 150px #ff0095;
+        }
+
+        to {
+            text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #ff0095,
+                0 0 35px #ff0095, 0 0 40px #ff0095, 0 0 50px #ff0095, 0 0 75px #ff0095;
+        }
+    }
+
+    @keyframes neon1 {
+        from {
+            text-shadow: 0 0 10px #ff0095, 0 0 20px #000000, 0 0 30px #000000, 0 0 40px #000000,
+                0 0 70px #000000, 0 0 80px #000000, 0 0 100px #000000, 0 0 150px #000000;
+        }
+
+        to {
+            text-shadow: 0 0 10px #ff0095, 0 0 20px #000000, 0 0 30px #000000, 0 0 40px #000000,
+                0 0 70px #000000, 0 0 80px #000000, 0 0 100px #000000, 0 0 150px #000000;
+        }
+    }
+</style>
+
+<script>
+    var dt2 = new Date('2024-06-25 00:00:00');
+
+    function My_date() {
+        var dt1 = new Date();
+        var delta = dt2 - dt1;
+        var diffDays = delta / (1000 * 60 * 60 * 24);
+        var diffhurs = 24 - dt1.getHours() - 1
+        var diffminutes = 60 - dt1.getMinutes() - 1
+        var diffSeconds = 60 - dt1.getSeconds() - 1
+        var value = Math.floor(diffDays) + ":"
+        if (diffhurs < 10)
+            value += "0" + Math.floor(diffhurs) + ":"
+        else value += Math.floor(diffhurs) + ":"
+        if (diffminutes < 10)
+            value += "0" + Math.floor(diffminutes) + ":"
+        else value += Math.floor(diffminutes) + ":"
+        if (diffSeconds < 10)
+            value += "0" + Math.floor(diffSeconds)
+        else value += Math.floor(diffSeconds)
+        document.getElementById("q").innerHTML = value
+    }
+
+    var s;
+    function mystart() {
+        s = setInterval(My_date, 1000);
+    }
+</script>
+
+</html>
